@@ -8,6 +8,10 @@ function printCStackTrace(name: string, context?:CpuContext): void {
         .map(DebugSymbol.fromAddress).join('\n') + '\n');
 }
 
+function printJavaStackTrace() {
+    console.log(Java.use('android.util.Log').getStackTraceString(Java.use('java.lang.Throwable').$new()));
+}
+
 export {
-    log, printCStackTrace
+    log, printCStackTrace, printJavaStackTrace
 }

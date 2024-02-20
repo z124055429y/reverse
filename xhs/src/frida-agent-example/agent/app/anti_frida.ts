@@ -24,7 +24,7 @@ function hook_linker64():void {
     }).forEach((value)=>{
         Interceptor.attach(value.address, {
             onEnter(args) {
-                console.log('name:', args[2].readPointer().readCString());
+                // console.log('name:', args[2].readPointer().readCString());
                 this.arg2 = args[2].readPointer().readCString();
                 this.arg4 = args[4];
             }, onLeave(_) {
